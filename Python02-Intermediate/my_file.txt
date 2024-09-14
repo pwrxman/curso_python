@@ -1,0 +1,27 @@
+Mi nombre es Brais
+Mi apellido es Moure
+35 años
+Y mi lenguaje preferido es PythonMi nombre es Brais
+Mi apellido es Moure
+35 años
+Y mi lenguaje preferido es Python
+Aunque también me gusta KotlinMi nombre es Brais
+Mi apellido es Moure
+35 años
+Y mi lenguaje preferido es Python
+Aunque también me gusta KotlinMi nombre es Brais
+Mi apellido es Moure
+35 años
+Y mi lenguaje preferido es Python
+Aunque también me gusta Kotlin
+Y SwiftMi nombre es Brais
+Mi apellido es Moure
+35 años
+Y mi lenguaje preferido es Python
+Aunque también me gusta Kotlin
+Y SwiftMi nombre es Brais
+Mi apellido es Moure
+35 años
+Y mi lenguaje preferido es Python
+Aunque también me gusta Kotlin
+Y Swift
