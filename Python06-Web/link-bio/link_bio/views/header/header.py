@@ -5,13 +5,20 @@ from link_bio.components.link_icon import link_icon
 from link_bio.components.info_text import info_text
 from link_bio.styles.styles import Size as Size
 from link_bio.styles.colors import TextColor as TextColor
+from link_bio.styles.colors import Color as Color
 import link_bio.constants as const
 
 def header() -> rx.Component:
     return rx.vstack(
         rx.hstack(
-            rx.avatar(name="And Medina", size="7",
-                      fallback="AM", color_scheme="tomato"),
+            rx.avatar(
+                name="And Medina",
+                size="7",
+                fallback="AM",
+                color = TextColor.BODY.value,
+                bg = Color.CONTENT.value
+                # color_scheme="tomato"
+            ),
             rx.vstack(
                 rx.heading("Hi 👋  My Name is Andrei"),
                 rx.text(
