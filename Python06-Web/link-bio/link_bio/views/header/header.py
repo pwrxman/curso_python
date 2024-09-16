@@ -12,11 +12,13 @@ def header() -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
-                name="And Medina",
-                size="7",
-                fallback="AM",
+                src ="avatar.jpg",
+                size="6",
                 color = TextColor.BODY.value,
-                bg = Color.CONTENT.value
+                bg = Color.CONTENT.value,
+                padding = "2px",
+                border = "8px",
+                border_color = Color.PRIMARY.value
                 # color_scheme="tomato"
             ),
             rx.vstack(
@@ -55,6 +57,7 @@ def header() -> rx.Component:
           Además, creo contenido formativo sobre programación en redes.
           Aquí podrás encontrar todos mis enlaces de interés ¡Bienvenid@!
           """,
+          font_size = Size.MEDIUM.value,
           color = TextColor.BODY.value
           ),
           spacing = Size.BIG.value,

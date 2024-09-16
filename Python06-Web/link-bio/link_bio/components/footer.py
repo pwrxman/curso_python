@@ -1,14 +1,18 @@
 import reflex as rx
 import datetime
+import link_bio.constants as const
 from link_bio.styles.styles import Size as Size
 from link_bio.styles.colors import TextColor as TextColor
 
 def footer() -> rx.Component:
     return rx.vstack(
-        rx.image(src="favicon.ico"),
+        rx.image(
+            src="logo.png", 
+            height = Size.VERY_BIG.value
+        ),
         rx.link(f"© 2014-{datetime.date.today().year} MoureDev by Brais Moure V4.0",
-                href="htpps://mouredev.com",
-                is_external=True,
+                href = const.MOUREDEV_URL,
+                is_external = True,
                 font_size = Size.MEDIUM.value
         ),
         rx.text(f"BUILDING SOFTWARE WITH ♥ FROM GALICIA TO THE WORLD.", 
