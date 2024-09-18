@@ -7,23 +7,83 @@ import link_bio.constants as const
 def links() -> rx.Component:
     return rx.vstack(
         title("Comunidad"),
-        link_button("Twitch", "Transmision sobre programación de Lunes a Viernes", const.TWITCH_URL),
-        link_button("YouTube", "Tutoriales sobre desarrollo de software Semanales", const.YOUTUBE_URL),
-        link_button("YouTube (Canal Secundario)", "Emisiones en Directo Destacados", const.YOUTUBE_SECONDARY_URL),
-        link_button("Discord", "El Chat y los grupos de estudio de la Comunidad", const.DISCORD_URL),
-        link_button("Retos de Programación", "Ejercicios Semanales para Practicar Lógica de Programación", const.CODE_CHALLENGES_URL),
+        link_button(
+            "Twitch", 
+            "Transmision sobre programación de Lunes a Viernes", 
+            "icons/twitch.svg", 
+            const.TWITCH_URL
+        ),
+        link_button(
+            "YouTube", 
+            "Tutoriales sobre desarrollo de software Semanales",
+            "icons/youtube.svg",
+            const.YOUTUBE_URL
+        ),
+        link_button(
+            "YouTube (Canal Secundario)", 
+            "Emisiones en Directo Destacados", 
+            "icons/youtube.svg",
+            const.YOUTUBE_SECONDARY_URL
+        ),
+        link_button(
+            "Discord", 
+            "El Chat y los grupos de estudio de la Comunidad",
+            "icons/discord.svg",
+            const.DISCORD_URL
+        ),
+        link_button(
+            "Retos de Programación",
+            "Ejercicios Semanales para Practicar Lógica de Programación",
+            "icons/challenges.png",
+            const.CODE_CHALLENGES_URL
+        ),
         width = "100%",
         spacing = Size.MEDIUM.value
     ), rx.vstack(
         title("Recursos y Más"),
-        link_button("Git y GitHub desde Cero", "Aquí Puedes Comprar Mi Libro en Formato Físico y Ebook", const.BOOK_URL),
-        link_button("Libros Recomendados", "Mi Listado de Libros Sobre Programación, Ciencia y Tecnología", const.BOOKS_URL),
-        link_button("Mi Set Up", "Listado con todos los elementos que uso en mi trabajo", const.SETUP_URL),
-        link_button("MoureDev", "Mi Sitio Web", const.MOUREDEV_URL),
-        link_button("Invítame a un Café", "¿Quieres Ayudarme a que siga creando contenido?", const.COFFEE_URL),
+        link_button(
+            "Git y GitHub desde Cero", 
+            "Aquí Puedes Comprar Mi Libro en Formato Físico y Ebook", 
+            "icons/git.svg",
+            const.BOOK_URL
+        ),
+        link_button(
+            "Libros Recomendados",
+            "Mi Listado de Libros Sobre Programación, Ciencia y Tecnología",
+            "icons/book.svg",
+            const.BOOKS_URL
+        ),
+        link_button(
+            "Mi Set Up",
+            "Listado con todos los elementos que uso en mi trabajo",
+            "icons/setup.svg",
+            const.SETUP_URL
+        ),
+        link_button(
+            "MoureDev",
+            "Mi Sitio Web",
+            "icons/logo.png",
+            const.MOUREDEV_URL
+        ),
+        link_button(
+            "Invítame a un Café", 
+            "¿Quieres Ayudarme a que siga creando contenido?",
+            "icons/coffee.svg",
+            const.COFFEE_URL
+        ),
         title("Contacto"),
-        link_button("My Public Inbox", "Respuesta Rápida y con Preferencia", const.MYPUBLICINBOX_URL),
-        link_button("Email", const.EMAIL, f"mailto:{const.EMAIL}"),
+        link_button(
+            "My Public Inbox",
+            "Respuesta Rápida y con Preferencia",
+            "icons/twitch.svg",
+            const.MYPUBLICINBOX_URL
+        ),
+        link_button(
+            "Email",
+            const.EMAIL,
+            "icons/email.svg",
+            f"mailto:{const.EMAIL}"
+        ),
         width = "100%",
         spacing = Size.MEDIUM.value
     )
