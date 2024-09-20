@@ -9,8 +9,9 @@ from link_bio.views.sponsors import sponsors
 import link_bio.styles.styles as styles
 
 
-class State(rx.State):
-    pass
+# class State(rx.State):    # En la 1a version, como la página es estática, esta sección no se necesita
+ #     pass                           # Se ocupará en la 2a parte de este curso de python web
+
 
 # Esta es la funcion principal
 def index() -> rx.Component:
