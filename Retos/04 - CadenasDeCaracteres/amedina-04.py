@@ -156,6 +156,8 @@ print("\n", phrase.strip('nothdv'))
 # upper()	Converts a string into upper case
 print(phrase.upper())
 
+print("\n\n< < < < < < < < < < < < < < < < <   INICIA LA DIFICULTAD EXTRA   > > > > > > > > > > > > > > > > >\n\n")
+
 """
  * DIFICULTAD EXTRA (opcional):
  * Crea un programa que analice dos palabras diferentes y realice comprobaciones
@@ -167,3 +169,23 @@ print(phrase.upper())
                     Si cada letra aparece solo una vez será un heterograma, 
                     si aparece dos, un isogroma de segundo orden y así sucesivamente
  """
+
+
+
+
+while True:
+    print("\n\nIngrese dos palabras, solo letras o 'q' en la primera letra para terminar:\n")
+    string1=input("Ingrese la primera palabra:")
+    string2=input("Ingrese la segunda palabra:")
+    if string1.isalpha() and string2.isalpha():
+        print("ambas cadenas son válidas!")
+    elif string1.isalpha()=="q" and string2.isalpha()=="":    
+        print("Salir del Programa!")
+        break
+
+
+#is_polindrom(str1, str2)
+
+
+
+
