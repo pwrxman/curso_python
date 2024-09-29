@@ -21,7 +21,13 @@ def sponsors() -> rx.Component:
                 const.MVP_URL,
                 "Logotipo de Microsoft MVP"          
             ), 
+            link_sponsor(
+                "githubstar.png",
+                const.GITHUB_STAR_URL,
+                "Logotipo de GitHub Star"          
+            ), 
             spacing = Size.BIG.value,
+            #columns=[1, 3]
             flex_direction = ["column", "row"]      # ver la documentacion de reflex, seccion layouts para entebnder el significado
         ),
         width = "100%",
