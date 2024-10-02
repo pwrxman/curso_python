@@ -3,16 +3,16 @@
 import reflex as rx
 from link_bio.components.link_icon import link_icon
 from link_bio.components.info_text import info_text
-from link_bio.styles.styles import Size as Size
+from link_bio.styles.styles import Size as Size, Spacing
 from link_bio.styles.colors import TextColor as TextColor
 from link_bio.styles.colors import Color as Color
 import link_bio.constants as const
 
-def header() -> rx.Component:
+def header(details = True) -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
-                src ="avatar.jpg",
+                src ="/avatar.jpg",
                 size="6",
                 color = TextColor.BODY.value,
                 bg = Color.CONTENT.value,
@@ -30,60 +30,70 @@ def header() -> rx.Component:
                     color = TextColor.BODY.value
                 ),
                 rx.hstack(
-                    link_icon("icons/github_gris.svg",
+                    link_icon("/icons/github_gris.svg",
                         const.GITHUB_URL,
                         "GitHub"
                     ),
                     link_icon(
-                        "icons/x.svg",
+                        "/icons/x.svg",
                         const.TWITTER_X_URL,
                         "Twitter/X"
                     ),
                     link_icon(
-                        "icons/instagram.svg",
+                        "/icons/instagram.svg",
                         const.INSTAGRAM_URL,
                         "Instagram"
                     ),
                     link_icon(
-                        "icons/tiktok.svg",
+                        "/icons/tiktok.svg",
                         const.TIKTOK_URL,
                         "TikTok"
                     ),
                     link_icon(
-                        "icons/spotify.svg",
+                        "/icons/spotify.svg",
                         const.SPOTIFY_URL,
                         "Spotify"
                     ),
                     link_icon(
-                        "icons/linkedin.svg",
+                        "/icons/linkedin.svg",
                         const.LINKEDIN_URL,
                         "Linkedin"
-                    )
+                    ),
+                    spacing=Size.LARGE.value
                 ),
-                align_items = "start",
-                spacing = Size.DEFAULT.value
-            )     
+                align_items = "start"
+            ),
+            spacing = Size.DEFAULT.value     
         ),
-        rx.flex(
-            info_text("13+", "Años de Experiencia"),
-            rx.spacer(),
-            info_text("100+", "Aplicaciones Creadas"),
-            rx.spacer(),
-            info_text("1M+", "Seguidores"),
-            width = "100%"
+        rx.cond(
+            details,
+            rx.vstack(
+                rx.flex(
+                    info_text("13+", "Años de Experiencia"),
+                    rx.spacer(),
+                    info_text("100+", "Aplicaciones Creadas"),
+                    rx.spacer(),
+                    info_text("1M+", "Seguidores"),
+                    width = "100%"
+                ),
+                rx.text(
+                    f"""
+                    Soy ingeniero de software y actualmente trabajo como freelance
+                    full-stack developer iOS y Android.
+                    Además, creo contenido formativo sobre programación en redes.
+                    Aquí podrás encontrar todos mis enlaces de interés ¡Bienvenid@!
+                    """,
+                    font_size = Size.MEDIUM.value,
+                    color = TextColor.BODY.value
+                ),
+
+                width="100%",
+                spacing=Size.BIG.value
+            )
+
         ),
-        
-        rx.text(
-          f"""
-          Soy ingeniero de software y actualmente trabajo como freelance
-          full-stack developer iOS y Android.
-          Además, creo contenido formativo sobre programación en redes.
-          Aquí podrás encontrar todos mis enlaces de interés ¡Bienvenid@!
-          """,
-          font_size = Size.MEDIUM.value,
-          color = TextColor.BODY.value
-          ),
-          spacing = Size.BIG.value,
-          align_items = "start"
+        width="100%",
+        spacing=Size.BIG.value,
+        align_items="start"
     )
 

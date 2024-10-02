@@ -1,38 +1,10 @@
 """Welcome to Reflex! This file outlines the steps to create a basic app."""
 
 import reflex as rx
+import link_bio.styles.styles as styles
 import link_bio.constants as const
-import link_bio.styles.styles as styles
-from link_bio.components.navbar import navbar
-from link_bio.components.footer import footer
-from link_bio.views.header import header
-from link_bio.views.links import links
-from link_bio.views.sponsors import sponsors
-import link_bio.styles.styles as styles
-
-
-# class State(rx.State):    # En la 1a version, como la página es estática, esta sección no se necesita
- #     pass                           # Se ocupará en la 2a parte de este curso de python web
-
-
-# Esta es la funcion principal
-def index() -> rx.Component:
-    return rx.box(
-        navbar(),
-        rx.center(
-            rx.vstack(
-                header(),
-                links(),
-                sponsors(),
-                max_width=styles.MAX_WIDTH,
-                width = "100%",
-                margin_y = styles.Size.BIG.value,
-                padding = styles.Size.BIG.value
-            )
-        ),
-        rx.center(footer())
-    )
-        
+import link_bio.pages.index as index
+import link_bio.pages.courses as courses
 
 
 
@@ -52,31 +24,6 @@ gtag('config', '{const.G_TAG}');
         ),
     ],
 )
-
-title = "MoureDev | Te enseño programación y desarrollo de software"
-description = "Hola, Mi nombre es Brais Moure. Soy Ingeniero de software, desarrollador freelance ..."
-preview = "https://moure.dev/preview.jpg"
-
-
-app.add_page(
-    index,
-    title=title,
-    description=description,
-    image = preview,
-    meta=[
-        {"name": "og:type",        "content": "website"},
-        {"name": "og:title",       "content": title},
-        {"name": "og:description", "content": description},
-        {"name": "og:image",       "content": preview},
-        {"name": "twitter:card",   "content": "summary_large_image"},
-        {"name": "twitter:site",   "content": "@mouredev"}
-
-    ]
-)
-
-
-
-
 
 
 

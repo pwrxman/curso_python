@@ -27,6 +27,16 @@ class Size (Enum):
     BIG = "2em"
     VERY_BIG = "4em"
 
+class Spacing(Enum):
+    ZERO = "0"
+    VERY_SMALL = "1"
+    SMALL = "3"
+    DEFAULT = "4"
+    LARGE = "5"
+    BIG = "6"
+    MEDIUM_BIG = "7"
+    VERY_BIG = "9"
+
 BASE_STYLE = {
     "font_family": Font.DEFAULT.value,
     "font_weight": FontWeight.LIGHT.value,

@@ -8,7 +8,7 @@ from link_bio.styles.colors import Color as Color
 def footer() -> rx.Component:
     return rx.vstack(
         rx.image(
-            src="logo.png", 
+            src="/logo.png", 
             height = Size.VERY_BIG.value,
             weight=Size.VERY_BIG.value,
             alt="Logotipo de MoureDev. Una \"eme\" entre llaves."
