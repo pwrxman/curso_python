@@ -57,11 +57,7 @@ def funcion(entrada: list):
 funcion(x)
 print(x, y)
 
-
-
-
-
-
+print("\n\n> > >  > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >\n\n")
 
 """
  * DIFICULTAD EXTRA (opcional):
@@ -74,3 +70,35 @@ print(x, y)
  *   su valor en las segundas.
  *   Comprueba también que se ha conservado el valor original en las primeras.
  """
+
+# Por valor
+
+def interchval(valor1: int, valor2: int):
+    aux = valor1
+    valor1 = valor2
+    valor2 = aux
+    return (valor1, valor2)
+
+
+var1 = 100
+var2 = 150
+
+newval1, newval2 = interchval(var1, var2)
+print(var1, var2, newval1, newval2)
+
+
+# Por referencia
+def interchref(valor1: list, valor2: list) -> tuple: 
+    aux = valor1
+    valor1 = valor2
+    valor2 = aux
+    return valor1, valor2
+
+
+var11 = [100, 200]
+var21 = [350, 450]
+
+newval1, newval2 = interchref(var1, var2)
+print(var1, var2)
+print(newval1, newval2)
+
