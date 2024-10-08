@@ -18,7 +18,7 @@ def navbar() -> rx.Component:
                     color = Color.PRIMARY.value
                 ),
                 rx.text(
-                    "Medina",
+                    "M",
                     as_ = "span",
                     font_weight = "bold",
                     color = Color.SECONDARY.value
