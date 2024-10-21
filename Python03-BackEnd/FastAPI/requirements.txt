@@ -1,5 +1,6 @@
 fastapi
 pyJWT
 passlib
+bcrypt
 pymongo
 python-multipart

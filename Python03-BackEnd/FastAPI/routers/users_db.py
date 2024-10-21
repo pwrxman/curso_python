@@ -16,6 +16,22 @@ router = APIRouter(prefix="/userdb",
                     responses={status.HTTP_404_NOT_FOUND : {"message": "No Encontrado"}})
 
 
+
+# Para hacer una consulta a la base de datos
+@router.get("/", response_model=list[User])  # Obtener un listado de usuarios en la DB  GET 127.0.0.1:8000/userdb
+async def users():
+    return users_schema(db_client.users.find())
+
+# Consulta por PATH
+@router.get("/{id}")  # Path   # Buscar un usuario especifico por ID  GET 127.0.0.1:8000/userdb/66c0400c997b66ca7504ce29 donde la clave es el ID del usuario
+async def user(id: str):
+    return search_user("_id", ObjectId(id))
+
+# Consulta por QUERY
+@router.get("/")  # Query  # Buscar por QUERY  GET 127.0.0.1:8000/userdb/user/?id=66c0400c997b66ca7504ce29 donde la clave es el ID del usuario
+async def user(id: str):
+    return search_user("_id", ObjectId(id))
+
 #  AHORA PONGAMOS UN POST
 #  para INSERTAR y/o crear un nuevo usuario
 
@@ -37,30 +53,6 @@ async def user(user: User):
     return User(**new_user)
 
 
-# Para hacer una consulta a la base de datos
-@router.get("/list", response_model=list[User])  # Obtener un listado de usuarios en la DB  GET 127.0.0.1:8000/userdb
-async def users():
-    return users_schema(db_client.users.find())
-
-# Consulta por PATH
-@router.get("/{id}")  # Path   # Buscar un usuario especifico por ID  GET 127.0.0.1:8000/userdb/66c0400c997b66ca7504ce29 donde la clave es el ID del usuario
-async def user(id: str):
-    return search_user("_id", ObjectId(id))
-
-# Consulta por QUERY
-@router.get("/user/")  # Query  # Buscar por QUERY  GET 127.0.0.1:8000/userdb/user/?id=66c0400c997b66ca7504ce29 donde la clave es el ID del usuario
-async def user(id: str):
-    return search_user("_id", ObjectId(id))
-
-@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)  # DELETE 127.0.0.1:8000/userdb/66c0400c997b66ca7504ce29 donde la clave es el ID del usuario
-async def user(id: str):
-    found = db_client.users.find_one_and_delete({"_id": ObjectId(id)})
-
-    if not found:
-        return {"error": "No se ha eliminado el usuario"}
-
-
-
 # Actualizar un usuario UPDATE
 @router.put("/", response_model=User)  # PUT 127.0.0.1:8000/userdb e incluir el JSON completo en la peticion
 async def user(user: User):
@@ -77,6 +69,17 @@ async def user(user: User):
 
     return search_user("_id", ObjectId(user.id))
 
+
+
+
+@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)  # DELETE 127.0.0.1:8000/userdb/66c0400c997b66ca7504ce29 donde la clave es el ID del usuario
+async def user(id: str):
+    found = db_client.users.find_one_and_delete({"_id": ObjectId(id)})
+
+    if not found:
+        return {"error": "No se ha eliminado el usuario"}
+
+
 def search_user(field: str, key):
     try:
         user = db_client.users.find_one({field: key})
@@ -84,6 +87,7 @@ def search_user(field: str, key):
 
     except:
         return {"error": "No se ha encontrado el usuario por funcion"}
+
 
 
 
