@@ -34,20 +34,18 @@ async def user(id: str):
 
 #  AHORA PONGAMOS UN POST
 #  para INSERTAR y/o crear un nuevo usuario
-
-@router.post("/", response_model=User, status_code=status.HTTP_201_CREATED)  # Respuest por defecto cuando OK ; Codigo de respuesta por defecto
+# Respuest por defecto cuando OK ; Codigo de respuesta por defecto
+@router.post("/", response_model=User, status_code=status.HTTP_201_CREATED)
 async def user(user: User):
     if type(search_user("email", user.email)) == User:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, 
-            detail="El Usuario ya existe usando HTTPEXCEPTION")  # Codigo especifico por el error ocurrido
+            status_code=status.HTTP_404_NOT_FOUND, detail="El usuario ya existe")
 
-    user_dict = dict(user) 
-    del user_dict["id"]   
+    user_dict = dict(user)
+    del user_dict["id"]
 
     id = db_client.users.insert_one(user_dict).inserted_id
 
-    # _id es el nombre por defecto del campo donde MongoDB almcena el ID único
     new_user = user_schema(db_client.users.find_one({"_id": id}))
 
     return User(**new_user)
